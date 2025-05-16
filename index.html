@@ -1,12 +1,567 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>바로온다 홈페이지</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <title>OJSolution</title>
+    <style>
+        html {
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+        }
+        body{
+            padding:0;
+            margin:0;
+        }
+
+        .wrapper{
+            width: 100%;
+        }
+        .sub-wrap{
+            /* max-width: 80%; */
+            margin: 0 auto;
+        }
+        .sub-conetent{
+            width: 100%;
+        }
+        
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        a{
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+    </style>
+    <style>
+        .main-visual{
+            width:100%;
+            position: relative;
+            height: 600px;
+            background: url(./visual/main_visual03.png) no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .visual-area{
+            flex-direction: column;            
+        }
+        .visual-title{
+            color: #fafc6b;
+            font-weight: 700;
+            font-size: 4rem;
+        }
+        .visual-desc{
+            color: #FFF;
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 1rem;
+        }
+        .content-title{
+            font-size: 2em;
+            line-height: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #202454;
+        }
+        .content-desc{
+            font-size: 1.3em;
+            line-height: 1.3em;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        #service-section01 > .content-list,
+        #service-section02 > .content-list,
+        #service-section03 > .content-list {
+            display: grid;
+            gap: 35px;
+            margin-bottom: 100px;
+        }
+        #service-section01 > .content-list{
+            gap: 80px 35px;
+        }
+
+        #service-section01 > .content-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        #service-section02 > .content-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        #service-section03 > .content-list {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .content-list > li {
+            border-radius: 16px;
+            padding: 36px;
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            /* min-height: 210px; */
+        }
+        .content-list li h4{
+            font-size: 24px;
+            color: #202454;
+            line-height: 36px;
+            margin: 15px 0;
+        }
+        .content-list li p{
+            color: #757590;
+        }
+        a.btn-go{
+            color: #6E7090;
+            margin-top: auto;
+            text-align: right;
+        }
+        a.btn-go:after{
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-left: auto;
+            background-image: url(./images/ico-move-up.png);
+            background-size: 100%;
+            transform: rotate(90deg);
+            vertical-align: middle;
+            margin: -4px auto 0 15px;
+            filter: brightness(0) saturate(100%) invert(45%) sepia(9%) saturate(1143%) hue-rotate(199deg) brightness(95%) contrast(85%);
+        }
+        .service-section{
+            padding: 50px 100px;
+        }
+        #service-section02{
+            background-color: #F9FAFB;
+        }
+
+
+
+        @media (max-width: 1685px){
+            #service-section03 .content-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 1306px){
+            .visual-title{
+                font-size: 3rem;
+            }
+            .visual-desc{
+                font-size: 1.4rem;
+                line-height: 1rem;
+            }
+            
+            #service-section01 .content-list,
+            #service-section02 .content-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #service-section03 .content-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-section{
+                padding: 20px 50px;
+            }
+            #service-section01 .content-list,
+            #service-section02 .content-list{
+                margin-top: 100px;
+                gap: 100px 5%;
+            }
+
+        }
+        @media (max-width: 768px){
+            .visual-title{
+                font-size: 3rem;
+            }
+            .visual-desc{
+                font-size: 1rem;
+                line-height: 1rem;
+            }
+            
+            #service-section01 .content-list,
+            #service-section02 .content-list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            #service-section03 .content-list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .service-section{
+                padding: 10px;
+            }
+        }
+
+        
+        .content-list{
+            margin-top: 100px;
+        }
+        .content-list li{
+            position: relative;
+        }
+        #service-section01 > .content-list li:before,
+        #service-section02 > .content-list li:before{
+            content: "";
+            display: inline-block;
+            position: absolute;
+        }
+        #service-section01 > .content-list li:before{
+            width: 140px;
+            height: 120px;
+            top: -70px;
+            left: 30px;
+        }
+        #service-section02 > .content-list li:before{
+            width: 35px;
+            height: 37px;
+            top: 20px;
+            left: 40px;
+        }
+        
+        #service-section01 > .content-list li:first-child:before{
+            background: url(images/3d/icon-list01.png) center / contain no-repeat;
+        }
+
+        #service-section01 > .content-list li:nth-child(2):before{
+            background: url(images/3d/icon-list02.png) center / contain no-repeat;
+        }
+
+        #service-section01 > .content-list li:nth-child(3):before{
+            background: url(images/3d/icon-list03.png) center / contain no-repeat;
+        }
+        #service-section01 > .content-list li:nth-child(4):before{
+            background: url(images/3d/icon-list04.png) center / contain no-repeat;
+        }
+        #service-section01 > .content-list li:nth-child(5):before{
+            background: url(images/3d/icon-list05.png) center / contain no-repeat;
+        }
+        #service-section01 > .content-list li:nth-child(6):before{
+            background: url(images/3d/icon-list06.png) center / contain no-repeat;
+        }
+
+        #service-section02 > .content-list li:before{
+            background: url(images/ico-service09.png) center / contain no-repeat;
+        }
+
+        #service-section03 > .content-title{
+            text-align: center;
+        }
+
+        .content-list li{
+            padding-top: 60px;
+        }
+        .content-list > li > span{
+            display: block;
+            font-weight: 800;
+            color: #D93E17;
+            font-size: 16px;
+        }
+        .content-list > li > p{
+            word-break: keep-all;
+        }
+        .content-list li h4{
+            line-height: 10px;
+        }
+        .content-list > li > a{
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #F3F6FA;
+            padding: 10px 15px;
+            font-size: 16px;
+            line-height: 14px;
+            font-weight: 500;
+            border-radius: 50px;
+            position: absolute;
+            left: 36px;
+            bottom: 20px;
+        }
+
+        .iconset{
+            overflow: hidden;
+            display: inline-block;
+            margin: -1px 0 0 0;
+            padding: 0;
+            font-size: 1px;
+            text-indent: -9999px;
+            text-align: left;
+            line-height: 0;
+            vertical-align: middle;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+
+        #service-section03 .content-list .ico-service{
+            width: 25px;
+            height: 27px;
+        }
+        #service-section03 .content-list .ico-service{
+            background-image: url(./images/ico-service07.png);
+            margin-top: 10px;
+        }
+
+        .data-title{
+            display: flex; justify-content: start; align-items: center;
+        }
+        .data-title > h4{
+            margin-left: 30px !important;
+        }
+
+        #service-section03 > .content-list li{
+            margin-top: 0 !important;
+            padding: 30px !important;
+            min-height: auto !important;
+        }
+        #service-section03 > .content-list li:hover{
+            background-color: #202454;
+        }
+        #service-section03 > .content-list li:hover h4,
+        #service-section03 > .content-list li:hover p{
+            color: #FFF;
+        }
+
+    </style>
 </head>
 <body>
-  <h1>안녕하세요, 바로온다입니다!</h1>
-  <p>이곳은 GitHub Pages로 만든 무료 홈페이지입니다.</p>
+    <div class="wrapper">
+        <div class="main-visual">
+            <div class="visual-area">
+                <div class="visual-title">OJSolution</div>
+                <div class="visual-desc">
+                    <p>ERP, CMS, LMS등 솔루션 개발 및 IoT 기반 원격 관제 시스템을 개발하는 기업입니다.</p>
+                    <p>15년 이상 된 노하우로 다양한 형태의 인터넷 솔루션을 개발합니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sub-wrap">
+            <div class="sub-content">
+                <div id="service-section01" class="service-section">
+                    <h4 class="content-title">PORTFOLIO</h4>
+                    <div class="content-desc">OJSolution이 15년간 참여하여 성공적으로 마친 사업을 소개합니다.</div>
+                    <ul class="content-list">
+                        <li>
+                            <span>국가물산업 IoT장비 PC 연동 및 컨트롤 시스템 개발</span>
+                            <h4>국가물산업 IoT연동 솔루션</h4>
+                            <p>국가물산업 IoT 장비와 PC를 연동한 실시간 점검 및 컨트롤이 가능한 솔루션 개발을 진행했습니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <span>메타버스 솔루션 API 개발 및 관리자 시스템 개발</span>
+                            <h4>큐비스 메타버스</h4>
+                            <p>메타버스 기반 솔루션 APP 큐비스 매타버스 솔루션 API 및 관리자 페이지 시스템을 개발을 진행했습니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <span>다이어트 통합 솔루션 시스템 개발</span>
+                            <h4>다이어트 솔루션</h4>
+                            <p>병원에서 체크하고 장소와 상관없이 실시간 상담을 통해 자신을 관리하는 맞춤형 다이어트 솔루션 개발을 진행했습니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <span>야놀자 비즈니스 사이트</span>
+                            <h4>야놀자</h4>
+                            <p>야놀자 비즈니스 사이트 및 관리 페이지 고도화 작업을 진행했습니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <span>대표사이트 및 예약 사이트</span>
+                            <h4>과학기술컨벤션센터</h4>
+                            <p>과학기술컨벤션센터 대표 사이트 리뉴얼 및 통합 예약 사이트의 관리를 진행하고 있습니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <span>한국안전기술</span>
+                            <h4>기계설비 성능점검 솔루션</h4>
+                            <p>기계설비 성능점검 솔루션 개발 및 점검보고서 솔루션 개발을 진행했습니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                    </ul>    
+                </div>
+                <div id="service-section02" class="service-section">
+                    <h4 class="content-title">현재 진행중인 PROJECT</h4>
+                    <ul class="content-list">
+                        <li>
+                            <i class="iconset ico-service01"></i>
+                            <h4>소방장비 원격관제 솔루션</h4>
+                            <p>소방장비 원격관제 관리 솔루션 및 APP 관리 솔루션 개발 진행중입니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <i class="iconset ico-service02"></i>
+                            <h4>과학기술컨벤션센터</h4>
+                            <p>과학기술컨벤션센터 대표 사이트 리뉴얼 작업 및 통합 예약 사이트의 고도화를 진행중입니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                        <li>
+                            <i class="iconset ico-service03"></i>
+                            <h4>물산업 IoT연동 솔루션</h4>
+                            <p>국가물산업 IoT연동 솔루션 2차 개발을 진행중입니다.</p>
+                            <!-- <a href="#" class="btn-go">바로가기</a> -->
+                        </li>
+                    </ul>
+                </div>
+                <div id="service-section03" class="service-section">
+                    <h4 class="content-title">오랜 노하우로 그동안 진행했던 프로젝트 입니다.</h4>
+                    <ul class="content-list">
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>국가물산업 IoT연동</h4>
+                            </div>
+                            <p>국가물산업 IoT장비 PC 연동 및 컨트롤 시스템 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>큐비스 메타버스</h4>
+                            </div>
+                            <p>메타버스 솔루션 API 개발 및 관리 시스템 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>다이어트 솔루션 개발</h4>
+                            </div>
+                            <p>다이어트 통합 솔루션 시스템 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>야놀자</h4>
+                            </div>
+                            <p>야놀자 비즈니스 사이트 관리 및 고도화 작업</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>과학기술컨벤션센터</h4>
+                            </div>
+                            <p>과학기술 컨벤션센터 대표사이트 리뉴얼 및 통합예약 사이트 관리</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>성능점검 솔루션</h4>
+                            </div>
+                            <p>한국안전기술 기계설비 성능점검 솔루션 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>광주광역시청</h4>
+                            </div>
+                            <p>광주광역시청 관리 솔루션 개발 및 사업소 사이트 개발 및 운영</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>스마트시티 플랫폼</h4>
+                            </div>
+                            <p>스마트시티 개방형 데이터 플랫폼 솔루션 구축</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>전남도청</h4>
+                            </div>
+                            <p>전남도청 관리 솔루션 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>맞춤형복지시스템</h4>
+                            </div>
+                            <p>맞춤형 복지시스템 솔루션 고도화 작업</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>주파수자원분석시스템</h4>
+                            </div>
+                            <p>국립전파연구원 주파수자원분석시스템 고도화 작업</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>한국전력 빌링시스템</h4>
+                            </div>
+                            <p>한국전력 인터넷 빌링 서비스 유지보수</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>여수시청</h4>
+                            </div>
+                            <p>여수시청 및 OK 예약 솔루션 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>프래쉬샾</h4>
+                            </div>
+                            <p>프래쉬샵 쇼핑몰 및 APP 솔루션 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>문화창조아카데미</h4>
+                            </div>
+                            <p>문화창조아카데미 관리 솔루션 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>한국인터넷 진흥원</h4>
+                            </div>
+                            <p>대표 사이트 개발/운영</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>공공아이핀</h4>
+                            </div>
+                            <p>공공아이핀 사이트 개발/운영</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>명덕마을 구석구석</h4>
+                            </div>
+                            <p>명덕마을 커뮤니티 APP 개발</p>
+                        </li>
+                        <li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>스마트펫</h4>
+                            </div>
+                            <p>우리아이 생체인식 서비스 APP 개발</p>
+                        </li><li>
+                            <div class="data-title">
+                                <i class="iconset ico-service"></i>
+                                <h4>기타</h4>
+                            </div>
+                            <p>40개 이상의 사이트 개발</p>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
